@@ -1,13 +1,18 @@
 {
   "todos": [
     {
-      "id": "931920e9-2b8f-4e40-8e68-e7b78003089a",
-      "text": "dada",
+      "id": "b6b97124-b2d8-4dd8-9552-74fc4df4c563",
+      "text": "Belajar React",
       "completed": false
     },
     {
-      "id": "dfe6abc6-73d8-44ab-8ac2-392ba4187f6c",
-      "text": "sdadas",
+      "id": "11652f04-cadb-4478-9e60-cefb0382347d",
+      "text": "Belajar Vue js",
+      "completed": false
+    },
+    {
+      "id": "aeaed1a8-596e-4c65-aa8a-6c64fe3007b6",
+      "text": "Belajar Android",
       "completed": false
     }
   ]
