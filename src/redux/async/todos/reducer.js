@@ -24,18 +24,21 @@ const todoReducer = (state = initialState, action) => {
         Error: null,
         isSuccess: false,
       };
+
     case FETCH_TODO_SUCCESS:
       return {
         ...state,
         loading: false,
         todos: action.payload,
       };
+
     case FETCH_TODO_FAILURE:
       return {
         ...state,
         loading: false,
         Error: action.payload,
       };
+
     case PROCESS_TODO_SUCCESS:
       return {
         ...state,
