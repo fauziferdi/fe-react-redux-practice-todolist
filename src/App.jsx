@@ -28,7 +28,7 @@ const App = () => {
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-md-6 ">
-            <div class="d-flex justify-content-between">
+            <div className="d-flex justify-content-between">
               <button
                 className="btn btn-outline-success mb-4 me-4"
                 name="language"

@@ -1,7 +1,10 @@
-// src/components/TodoInput.js
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { addTodo, updateTodo, setUpdateTodo } from "../redux/todos/actions";
+import {
+  addTodo,
+  updateTodo,
+  setUpdateTodo,
+} from "../redux/async/todos/actions";
 
 const TodoInput = () => {
   const [text, setText] = useState("");
@@ -13,12 +16,11 @@ const TodoInput = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (updateTodoId) {
-      dispatch(updateTodo({ id: updateTodoId, text: text, completed: false }));
+      dispatch(updateTodo(updateTodoId, { text: text, completed: false }));
       dispatch(setUpdateTodo(null));
     } else {
-      dispatch(addTodo({ id: Date.now(), text: text, completed: false }));
+      dispatch(addTodo({ id: uuidv4(), text: text, completed: false }));
     }
-
     setText("");
   };
 

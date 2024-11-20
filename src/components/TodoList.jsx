@@ -1,15 +1,42 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
-import { deleteTodo, setUpdateTodo } from "../redux/todos/actions";
+import {
+  fetchTodos,
+  deleteTodo,
+  setUpdateTodo,
+} from "../redux/async/todos/actions";
 
 const TodoList = () => {
-  const todos = useSelector((state) => state.todo.todos);
+  const { todos, loading, error, isSuccess } = useSelector(
+    (state) => state.todo
+  );
+
   const language = useSelector((state) => state.lang.language);
   const dispatch = useDispatch();
+
+  //get data pertama kali
+  useEffect(() => {
+    dispatch(fetchTodos());
+  }, [dispatch]);
+
+  //get data jika ada perubahan true
+  useEffect(() => {
+    if (isSuccess) {
+      dispatch(fetchTodos());
+    }
+  }, [isSuccess]);
 
   const handleEdit = (todo) => {
     dispatch(setUpdateTodo(todo.id));
   };
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+  if (error) {
+    return <p>Error: {error}</p>;
+  }
 
   return (
     <ul className="list-group">
